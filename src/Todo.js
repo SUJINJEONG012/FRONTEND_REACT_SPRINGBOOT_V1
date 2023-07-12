@@ -5,7 +5,10 @@ const Todo = (props) => {
     const [item, setItem] = useState(props.item);
     return (
         <div className="Todo">
-            <input type="check" id="{item.id}" name="{item.id}" value="{item.done}" />
+            <input type="check" 
+                    id="{item.id}" 
+                    name="{item.id}" 
+                    value="{item.done}" />
             <label for="{item.id}">{item.title}</label>
         </div>
     )
