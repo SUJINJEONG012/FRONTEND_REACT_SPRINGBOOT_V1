@@ -7,17 +7,17 @@ function App() {
     {
     id : "0",
     title: "Hello React1 ",
-    done : true
+    done : true,
     },
 
     {
       id : "1",
       title: "Hello React2 ",
-      done : true
+      done : false,
       },
   ]);
 
-  let todoItems = items.length > 0 && items.map((item)=> <Todo item = {item} key={item.id}/>);
+  let todoItems = items.length > 0 && items.map((item) => <Todo item = {item} key={item.id} />);
   return (
     <div className="App">
      {todoItems}
