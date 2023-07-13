@@ -18,3 +18,5 @@ const AddTodo = (props) => {
         </Grid>
     )
 }
+
+export default AddTodo;
