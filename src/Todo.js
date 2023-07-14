@@ -12,19 +12,38 @@ import DeleteOutlined from "@mui/icons-material/DeleteOutlined";
 
 const Todo = (props) => {
     const [item, setItem] = useState(props.item);
+    // boolean 형의 readOnly 변수를 추가
+    const [readOnly, setReadOnly] = useState(true);
+    //삭제
     const deleteItem = props.deleteItem;
+
+    //turnOffReadOnly()함수 작성
+    const turnOffReadOnly = () =>{
+        setReadOnly(false);
+    }
+    const turnOnReadOnly = (e) =>{
+        if(e.key === 'Enter'){
+            setReadOnly(true);
+        }
+    };
+
+
 
     //deleteEventHandler 작성 , App.js에서 만든 deleteItem 함수연결
     const deleteEventHandler = ()=>{
         deleteItem(item);
     }
 
+
     return (  
         <ListItem>
             <Checkbox checked={item.done}/>
             <ListItemText>
                 <InputBase 
-                 inputProps={{"aria-label": "naked"}}
+                 inputProps={{"aria-label": "naked", 
+                 readOnly : readOnly}}
+                 onClick ={turnOffReadOnly}
+                 onKeyDown={turnOnReadOnly}
                  type="text"
                  id={item.id}
                  name={item.id}
@@ -33,6 +52,8 @@ const Todo = (props) => {
                  fullWidth={true}
                 />
             </ListItemText>
+
+
 
             <ListItemSecondaryAction>
                 <IconButton aria-label="Delete Todo" onClick={deleteEventHandler}>
