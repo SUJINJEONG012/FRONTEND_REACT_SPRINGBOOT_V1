@@ -12,8 +12,14 @@ import DeleteOutlined from "@mui/icons-material/DeleteOutlined";
 
 const Todo = (props) => {
     const [item, setItem] = useState(props.item);
-    return (
-        
+    const deleteItem = props.deleteItem;
+
+    //deleteEventHandler 작성 , App.js에서 만든 deleteItem 함수연결
+    const deleteEventHandler = ()=>{
+        deleteItem(item);
+    }
+
+    return (  
         <ListItem>
             <Checkbox checked={item.done}/>
             <ListItemText>
@@ -29,7 +35,7 @@ const Todo = (props) => {
             </ListItemText>
 
             <ListItemSecondaryAction>
-                <IconButton aria-label="Delete Todo">
+                <IconButton aria-label="Delete Todo" onClick={deleteEventHandler}>
                     <DeleteOutlined />
                 </IconButton>
             </ListItemSecondaryAction>
