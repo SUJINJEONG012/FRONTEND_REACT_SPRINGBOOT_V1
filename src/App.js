@@ -5,18 +5,7 @@ import {Container, List, Paper} from "@mui/material";
 import AddTodo from './AddTodo';
 
 function App() {
-  const [items, setItems] = useState([
-    {
-    id : "0",
-    title: "Hello React1 ",
-    done : true,
-    },
-    {
-      id : "1",
-      title: "Hello React2 ",
-      done : true,
-      },
-  ]);
+  const [items, setItems] = useState([]);
 
   // 아이템 추가하기
   const addItem = (item) =>{
