@@ -5,6 +5,13 @@ const AddTodo = (props) => {
     //사용자의 입력을 저장할 오브젝트
     const[item, setItem] = useState({title: ""})
    
+    // onButtonClick 함수 작성
+    const onButtonClick = ()=>{
+        addItem(item); //addItem 함수사용
+        setItem({title: ""});
+    }
+
+
     // onInputChange 함수 작성, e는 매개변수, 사용자가 입력한 값
     const onInputChange = (e)=>{
         setItem({title : e.target.value});
@@ -22,7 +29,8 @@ const AddTodo = (props) => {
                 onChange={onInputChange} value ={item.title}/>
             </Grid>
             <Grid xs={1} md={1} item>
-                <Button fullWidth style={{height:'100%'}} color="secondary" variant="outlined">
+                <Button fullWidth style={{height:'100%'}} 
+                color="secondary" variant="outlined" onClick={onButtonClick}>
                         +
                 </Button>
             </Grid>
