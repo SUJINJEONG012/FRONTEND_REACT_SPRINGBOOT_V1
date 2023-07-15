@@ -22,12 +22,16 @@ function App() {
    // 삭제할 아이템을 제외한 아이템을 다시 배열에 저장한다.
    setItems([...newItems]); 
   }
+  //아이템 수정하기, 내부의 값을 변경했기 때문에 새 배열로 초기화해 화면을 다시 렌더링
+  const editItem = ()=> {
+    setItems([...items])
+  }
 
   let todoItems = items.length > 0 && (
     <Paper style={{margin:16}}>
       <List>
           {items.map((item) => (
-          <Todo item = {item} key={item.id} deleteItem={deleteItem}/>
+          <Todo item = {item} key={item.id} editItem = {editItem} deleteItem={deleteItem}/>
           ))}
       </List>
     </Paper>
