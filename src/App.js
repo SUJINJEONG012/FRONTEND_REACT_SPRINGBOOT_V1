@@ -13,7 +13,7 @@ const requestOptions = {
   Headers: {"Content-Type" : "application/json"},
 };
 
-fetch("http//localhost:8080/todo", requestOptions)
+fetch("http://localhost:8080/todo", requestOptions)
 .then((response) => response.json())
 .then(
   (response) => {
@@ -60,7 +60,7 @@ fetch("http//localhost:8080/todo", requestOptions)
         <AddTodo addItem={addItem}/>
         <div className='TodoList'>{todoItems}</div>
       </Container>
-     
+
     </div>
   );
 
