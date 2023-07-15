@@ -5,23 +5,34 @@ import {Container, List, Paper } from "@mui/material";
 import AddTodo from './AddTodo';
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([
+    {
+      id:"0",
+      title:"Hello world1",
+      done:true,
+    },
+    {
+      id:"1",
+      title:"Hello world1",
+      done:true,
+    },
+  ]);
 
   // app 컴포넌트 함수에서 API를 이용해 리스트 초기화
-  useEffect(()=>{
-    const requestOptions = {
-      method: "GET",
-      headers : { "Content-Type" : "application/json"},
-    };
+  // useEffect(()=>{
+  //   const requestOptions = {
+  //     method: "GET",
+  //     headers : { "Content-Type" : "application/json"},
+  //   };
 
-    fetch("http://localhost:8080/todo", requestOptions)
-    .then((response) => response.json())
-    .then((response)=>{
-      setItems(response.data);
-    },
-    (error) => {}
-    );
-  },[items]);
+  //   fetch("http://localhost:8080/todo", requestOptions)
+  //   .then((response) => response.json())
+  //   .then((response) => {
+  //     setItems(response.data);
+  //   },
+  //   (error) => {}
+  //   );
+  // },[]);
 
 
 
@@ -60,15 +71,13 @@ function App() {
       </List>
     </Paper>
   );
-
   return (
     <div className="App">
       <Container maxWidth="md">
         <AddTodo addItem={addItem} />
         <div className="TodoList">{todoItems}</div>
       </Container>
-    </div>
-  );
+    </div>);
 }
 
 export default App;

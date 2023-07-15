@@ -44,7 +44,6 @@ const Todo = (props) => {
     };
 
 
-
     return (  
         <ListItem>
             <Checkbox checked={item.done} onChange={checkboxEventHandler} />
