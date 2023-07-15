@@ -21,15 +21,16 @@ const Todo = (props) => {
     const editEventHandler = (e) => {
         item.title = e.target.value;
         editItem();
+    };
+    const checkboxEventHandler = (e)=>{
+        item.done = e.target.checked;
+        editItem();
     }
-
 
     //deleteEventHandler 작성 , App.js에서 만든 deleteItem 함수연결
     const deleteEventHandler = ()=>{
         deleteItem(item);
     }
-
-
 
     //turnOffReadOnly()함수 작성
     const turnOffReadOnly = () =>{
@@ -46,7 +47,7 @@ const Todo = (props) => {
 
     return (  
         <ListItem>
-            <Checkbox checked={item.done}/>
+            <Checkbox checked={item.done} onChange={checkboxEventHandler} />
             <ListItemText>
                 <InputBase 
                  inputProps={{"aria-label": "naked", 
