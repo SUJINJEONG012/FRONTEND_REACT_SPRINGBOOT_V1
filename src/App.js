@@ -7,6 +7,23 @@ import AddTodo from './AddTodo';
 function App() {
   const [items, setItems] = useState([]);
 
+// app 컴포넌트 함수에서 API를 이용해 리스트 초기화
+const requestOptions = {
+  method:"GET",
+  Headers: {"Content-Type" : "application/json"},
+};
+
+fetch("http//localhost:8080/todo", requestOptions)
+.then((response) => response.json())
+.then(
+  (response) => {
+    setItems(response.data);
+  },
+  (error)=>{
+
+  }
+);
+
   // 아이템 추가하기
   const addItem = (item) =>{
     item.id = "ID-" + items.length;  //key 를 위한 id
