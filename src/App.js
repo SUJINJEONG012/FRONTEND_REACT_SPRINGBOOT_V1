@@ -10,7 +10,7 @@ function App() {
 // app 컴포넌트 함수에서 API를 이용해 리스트 초기화
 const requestOptions = {
   method:"GET",
-  Headers: {"Content-Type" : "application/json"},
+  headers: {"Content-Type" : "application/json"},
 };
 
 fetch("http://localhost:8080/todo", requestOptions)
@@ -23,6 +23,7 @@ fetch("http://localhost:8080/todo", requestOptions)
 
   }
 );
+
 
   // 아이템 추가하기
   const addItem = (item) =>{
