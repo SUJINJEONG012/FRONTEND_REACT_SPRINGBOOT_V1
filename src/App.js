@@ -12,10 +12,10 @@ useEffect(() => {
   call("/todo", "GET", null)
   .then((response) => response.json())
   .then((data) => setItems(data));
-}, []);
+  },[]);
 
   const addItem = (item) => {
-    call("/todo", "POST", null)
+    call("/todo", "POST", item)
     .then((response) => setItems(response.data));
   };
 
@@ -44,10 +44,11 @@ useEffect(() => {
       </List>
     </Paper>
   );
+
   return (
     <div className="App">
       <Container maxWidth="md">
-        {<AddTodo addItem={addItem} /> }
+        <AddTodo addItem={addItem} />
         <div className="TodoList">{todoItems}</div>
       </Container>
     </div>
