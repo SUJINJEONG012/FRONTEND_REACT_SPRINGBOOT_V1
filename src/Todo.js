@@ -21,7 +21,7 @@ const Todo = (props) => {
 
   const checkboxEventHandler = (e) => {
     item.done = e.target.checked;
-    editItem();
+    editItem(item);
   }
 
   // deleteEventHandler 작성

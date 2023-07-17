@@ -9,9 +9,9 @@ function App() {
   const [items, setItems] = useState([]);
 
 useEffect(() => {
+
   call("/todo", "GET", null)
-  .then((response) => response.json())
-  .then((data) => setItems(data));
+  .then((response) => setItems(response.data));
   },[]);
 
   const addItem = (item) => {
